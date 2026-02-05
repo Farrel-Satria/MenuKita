@@ -1,0 +1,16 @@
+# ===== Android =====
+*.iml
+.gradle
+/local.properties
+/.idea
+/.idea/*
+/build
+/captures
+.externalNativeBuild
+
+# ===== Firebase (SANGAT PENTING) =====
+google-services.json
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
