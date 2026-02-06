@@ -1,40 +1,60 @@
 package com.example.menukita
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.menukita.model.Menu
-import com.google.firebase.database.FirebaseDatabase
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.menukita.adapter.MenuAdapter
+import com.example.menukita.databinding.ActivityMainBinding
+import com.example.menukita.repository.MenuRepository
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var menuAdapter: MenuAdapter
+    private val repository = MenuRepository()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        Log.d("FIREBASE_TEST", "onCreate terpanggil")
+        setupRecyclerView()
+        observeData()
 
-        // 🔥 PAKSA pakai database URL yang BENAR
-        val database = FirebaseDatabase.getInstance(
-            "https://menukita-feb11-default-rtdb.asia-southeast1.firebasedatabase.app"
-        )
+        binding.fabAdd.setOnClickListener {
+            val intent = Intent(this, AddMenuActivity::class.java)
+            startActivity(intent)
+        }
+    }
 
-        val menuRef = database.getReference("menus")
-
-        val menuId = menuRef.push().key!!
-        val menu = Menu(
-            id = menuId,
-            nama = "Tes Menu",
-            harga = 10000,
-            deskripsi = "Realtime DB jalan"
-        )
-
-        menuRef.child(menuId).setValue(menu)
-            .addOnSuccessListener {
-                Log.d("FIREBASE_TEST", "DATA MASUK 🔥")
+    private fun setupRecyclerView() {
+        menuAdapter = MenuAdapter(emptyList()) { menu ->
+            // Mengirim data menu ke EditMenuActivity
+            val intent = Intent(this, EditMenuActivity::class.java).apply {
+                putExtra("MENU_ID", menu.id)
+                putExtra("MENU_NAMA", menu.nama)
+                putExtra("MENU_HARGA", menu.harga)
+                putExtra("MENU_DESKRIPSI", menu.deskripsi)
             }
-            .addOnFailureListener { e ->
-                Log.e("FIREBASE_TEST", "GAGAL: ${e.message}")
+            startActivity(intent)
+        }
+        
+        binding.rvMenu.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = menuAdapter
+        }
+    }
+
+    private fun observeData() {
+        repository.getMenus(
+            onDataChange = { menuList ->
+                menuAdapter.updateData(menuList)
+            },
+            onError = { errorMessage ->
+                Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_LONG).show()
             }
+        )
     }
 }

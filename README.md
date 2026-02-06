@@ -21,50 +21,42 @@ Agar aplikasi bisa terhubung ke database, lakukan langkah ini setelah `git clone
 
 ## 📅 PHASE PENGERJAAN (ROADMAP)
 
-### 🏗️ PHASE 1: Foundation & Connectivity (Target: Firebase Konek) ✅
+### 🏗️ PHASE 1: Foundation & Connectivity ✅
 **Penanggung Jawab: Farrel**
-*   [x] Setup Project di Firebase Console.
-*   [x] Konfigurasi `google-services.json` ke Android Studio.
-*   [x] Aktivasi Realtime Database (Rules: `read: true, write: true` untuk development).
-*   [x] Uji coba push data dummy dari `MainActivity`.
-*   **Output:** Aplikasi berhasil mengirim data ke Firebase.
+*   [x] Setup Project & Konfigurasi Firebase.
+*   [x] Aktivasi Realtime Database.
+*   **Output:** Aplikasi terhubung ke Firebase.
 
-### 🎨 PHASE 2: UI Base & Data Modeling (Target: Kerangka Siap) ✅
+### 🎨 PHASE 2: UI Base & Data Modeling ✅
 **Penanggung Jawab: Dani & Musa**
-*   **Dani (UI):** Implementasi warna Navy-Cream di `colors.xml` & `themes.xml`. Buat layout dasar `activity_main.xml`.
-*   [x] **Musa (Logic):** Finalisasi data class `Menu.kt` (id, nama, harga, deskripsi).
-*   **Output:** Tampilan awal muncul dengan tema yang benar dan model data sudah fix.
+*   [x] Implementasi warna & tema Navy-Cream.
+*   [x] Finalisasi data class `Menu.kt`.
+*   **Output:** Tampilan dasar dan model data fix.
 
-### ⚙️ PHASE 3: Core CRUD Logic (Target: Fungsi CRUD Jalan) ✅
+### ⚙️ PHASE 3: Core CRUD Logic ✅
 **Penanggung Jawab: Musa**
-*   [x] Buat class/helper untuk interaksi Firebase (`MenuRepository.kt`).
-*   [x] Implementasi fungsi `createMenu()`.
-*   [x] Implementasi fungsi `readMenus()` (menggunakan Listener).
-*   [x] Implementasi fungsi `updateMenu()` & `deleteMenu()`.
-*   **Output:** Logika penambahan, pengambilan, pengubahan, dan penghapusan data siap digunakan.
+*   [x] Buat `MenuRepository.kt` (Create, Read, Update, Delete).
+*   **Output:** Logika backend siap.
 
-### 🔗 PHASE 4: UI Integration (Target: Fitur Bisa Dipakai User) 🚧
+### 🔗 PHASE 4: UI Integration ✅
 **Penanggung Jawab: Dani & Musa**
-*   [ ] **Dani:** Selesaikan layout `item_menu.xml`, `activity_add_menu.xml`, dan `activity_edit_menu.xml`.
-*   [ ] **Musa & Dani:** Hubungkan Firebase ke `RecyclerView`.
-*   [ ] **Musa & Dani:** Hubungkan tombol "Tambah" dan "Edit" ke Activity masing-masing.
-*   **Output:** User bisa menambah, melihat, mengedit, dan menghapus menu melalui layar HP.
+*   [x] Hubungkan Firebase ke `RecyclerView`.
+*   [x] Buat halaman `AddMenuActivity`.
+*   [x] Buat halaman `EditMenuActivity`.
+*   **Output:** Fitur CRUD bisa digunakan sepenuhnya oleh user.
 
-### 🛠️ PHASE 5: Testing & UX Polish (Target: App Stabil)
+### 🛠️ PHASE 5: Testing & UX Polish 🚧
 **Penanggung Jawab: Mazaya**
-*   [ ] Uji coba input (Validasi: Harga tidak boleh kosong, Nama harus diisi).
-*   [ ] Tambahkan Dialog Konfirmasi sebelum menghapus data.
+*   [x] Tambahkan Dialog Konfirmasi hapus data.
+*   [ ] Uji coba input (Validasi kosong/format salah).
 *   [ ] Handling error saat internet mati.
-*   [ ] Pastikan tidak ada *force close* saat aplikasi digunakan.
-*   **Output:** Aplikasi minim bug dan nyaman digunakan.
+*   **Output:** Aplikasi stabil dan minim bug.
 
-### 📝 PHASE 6: Documentation & Finalization (Target: Siap Kumpul)
+### 📝 PHASE 6: Documentation & Finalization
 **Penanggung Jawab: Andhika**
-*   [ ] Pengumpulan screenshot setiap fitur.
-*   [ ] Pembuatan presentasi (PPT) yang menarik.
-*   [ ] Finalisasi file `README.md` (Update status fitur).
-*   [ ] Penataan folder project agar rapi.
-*   **Output:** Laporan lengkap dan project siap dipresentasikan.
+*   [ ] Screenshot fitur & Pembuatan presentasi.
+*   [ ] Finalisasi file `README.md`.
+*   **Output:** Project siap dikumpulkan.
 
 ---
 
@@ -74,8 +66,3 @@ Agar aplikasi bisa terhubung ke database, lakukan langkah ini setelah `git clone
 *   **Dani:** UI/UX Designer (XML)
 *   **Mazaya:** Quality Assurance (Testing)
 *   **Andhika:** Documentation Specialist
-
----
-
-## 🧠 FLOW DATA
-`Input UI` ➔ `Kotlin Logic` ➔ `Firebase Realtime DB` ➔ `Sync to All Users (Realtime)`
