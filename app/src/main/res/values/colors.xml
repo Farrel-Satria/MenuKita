@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <!-- Navy Theme -->
+    <color name="navy_primary">#1A237E</color>
+    <color name="navy_dark">#000051</color>
+    <color name="navy_light">#534BAE</color>
+
+    <!-- Cream Theme -->
+    <color name="cream_secondary">#FFF8E1</color>
+    <color name="cream_dark">#CCC5AF</color>
+    <color name="cream_light">#FFFFFF</color>
+
+    <!-- Accent & Text -->
+    <color name="gold_accent">#FFC107</color>
+    <color name="text_primary">#212121</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
 </resources>

@@ -1,8 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MenuKita" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.MenuKita" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/navy_primary</item>
+        <item name="colorPrimaryVariant">@color/navy_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/cream_secondary</item>
+        <item name="colorSecondaryVariant">@color/cream_dark</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+
+        <!-- Accent and Background -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/navy_dark</item>
     </style>
 
     <style name="Theme.MenuKita" parent="Base.Theme.MenuKita" />
