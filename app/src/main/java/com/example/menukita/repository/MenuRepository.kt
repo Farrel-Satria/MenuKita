@@ -27,8 +27,13 @@ class MenuRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val menuList = mutableListOf<Menu>()
                 for (menuSnapshot in snapshot.children) {
-                    val menu = menuSnapshot.getValue(Menu::class.java)
-                    menu?.let { menuList.add(it) }
+                    try {
+                        val menu = menuSnapshot.getValue(Menu::class.java)
+                        menu?.let { menuList.add(it) }
+                    } catch (e: Exception) {
+                        // Log error to identify problematic data in Firebase Console
+                        android.util.Log.e("MenuRepository", "Error parsing menu at key: ${menuSnapshot.key}", e)
+                    }
                 }
                 onDataChange(menuList)
             }
