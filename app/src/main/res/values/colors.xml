@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Navy Theme -->
-    <color name="navy_primary">#1A237E</color>
-    <color name="navy_dark">#000051</color>
-    <color name="navy_light">#534BAE</color>
-
-    <!-- Cream Theme -->
-    <color name="cream_secondary">#FFF8E1</color>
-    <color name="cream_dark">#CCC5AF</color>
-    <color name="cream_light">#FFFFFF</color>
-
-    <!-- Accent & Text -->
-    <color name="gold_accent">#FFC107</color>
-    <color name="text_primary">#212121</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="black">#FF000000</color>
+    <!-- Green Theme based on image -->
+    <color name="primary_green">#00A36C</color>
+    <color name="primary_dark_green">#007A51</color>
+    <color name="light_green">#E8F5E9</color>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="black">#212121</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray_text">#757575</color>
+    <color name="orange_accent">#FF9800</color>
 </resources>
