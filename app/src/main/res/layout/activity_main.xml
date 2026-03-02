@@ -107,8 +107,10 @@
         android:id="@+id/rvMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="8dp"
         android:clipToPadding="false"
+        android:paddingTop="8dp"
+        app:layout_anchor="@+id/rvMenu"
+        app:layout_anchorGravity="center"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_menu" />
 
@@ -120,6 +122,8 @@
         android:layout_margin="24dp"
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@color/orange_accent"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        app:layout_dodgeInsetEdges="bottom"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

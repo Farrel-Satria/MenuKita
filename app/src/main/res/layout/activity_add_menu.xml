@@ -51,13 +51,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nama Menu"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/primary_green">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etNamaMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapWords" />
+                        android:inputType="textCapWords"
+                        android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Kategori Dropdown -->
@@ -68,12 +70,15 @@
                     android:layout_marginTop="16dp"
                     android:hint="Kategori"
                     app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    android:textColorHint="@color/black">
+
                     <AutoCompleteTextView
-                        android:id="@+id/actKategori"
+                        android:id="@+id/etKategori"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none" />
+                        android:inputType="none"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Harga -->
@@ -84,29 +89,37 @@
                     android:layout_marginTop="16dp"
                     android:hint="Harga (Rp)"
                     app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    android:textColorHint="@color/black">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etHargaMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:textColorHint="@color/black"
+                        android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- URL Gambar -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <!-- Preview Gambar -->
+                <ImageView
+                    android:id="@+id/ivPreview"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_gallery" />
+
+                <!-- Tombol Pilih Gambar -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPilihGambar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="URL Gambar (Opsional)"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etImageUrl"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textUri" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="12dp"
+                    android:text="Pilih Gambar"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/primary_green"
+                    app:cornerRadius="12dp" />
 
                 <!-- Deskripsi -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -116,16 +129,20 @@
                     android:layout_marginTop="16dp"
                     android:hint="Deskripsi"
                     app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    android:textColorHint="@color/black">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etDeskripsiMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="top"
                         android:inputType="textMultiLine"
-                        android:lines="3" />
+                        android:lines="3"
+                        android:textColorHint="@color/black"
+                        android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <!-- Simpan -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSimpan"
                     android:layout_width="match_parent"
