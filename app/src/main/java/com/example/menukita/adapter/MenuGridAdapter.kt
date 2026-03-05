@@ -12,12 +12,12 @@ import com.example.menukita.model.Menu
 import java.text.NumberFormat
 import java.util.Locale
 
-class MenuAdapter(
+class MenuGridAdapter(
     private var menuList: List<Menu>,
     private val onItemClick: (Menu) -> Unit
-) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+) : RecyclerView.Adapter<MenuGridAdapter.GridViewHolder>() {
 
-    class MenuViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class GridViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val ivMenu: ImageView = view.findViewById(R.id.ivMenu)
         val tvNama: TextView = view.findViewById(R.id.tvNamaMenu)
         val tvHarga: TextView = view.findViewById(R.id.tvHargaMenu)
@@ -25,23 +25,21 @@ class MenuAdapter(
         val tvKategori: TextView = view.findViewById(R.id.tvKategoriBadge)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_menu, parent, false)
-        return MenuViewHolder(view)
+            .inflate(R.layout.item_menu_grid, parent, false)
+        return GridViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
         val menu = menuList[position]
         holder.tvNama.text = menu.nama
-        holder.tvDeskripsi.text = menu.deskripsi
+        holder.tvDeskripsi.text = menu.deskripsi ?: ""
         holder.tvKategori.text = menu.kategori ?: "Lainnya"
-        
-        // Format harga ke Rupiah
+
         val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         holder.tvHarga.text = formatter.format(menu.harga ?: 0)
 
-        // Load Gambar dengan Glide
         Glide.with(holder.itemView.context)
             .load(menu.imageUrl)
             .placeholder(R.drawable.placeholder_food)

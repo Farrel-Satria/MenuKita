@@ -8,6 +8,7 @@ data class Menu(
     val nama: String? = null,
     val harga: Int? = null,
     val deskripsi: String? = null,
-    val kategori: String? = "Lainnya", // Tambahan kategori
-    val imageUrl: String? = null        // Tambahan untuk foto makanan
+    val kategori: String? = "Lainnya",
+    val imageUrl: String? = null,
+    val isBestSeller: Boolean? = false // Tandai sebagai menu andalan
 )

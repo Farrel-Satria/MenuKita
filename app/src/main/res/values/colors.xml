@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Green Theme based on image -->
+    <!-- Green Theme (Food Choice) -->
     <color name="primary_green">#00A36C</color>
     <color name="primary_dark_green">#007A51</color>
     <color name="light_green">#E8F5E9</color>
     
+    <!-- Accent Colors -->
+    <color name="orange_accent">#FF9800</color>
+    <color name="gold_accent">#FFC107</color>
+    
+    <!-- Standard Colors -->
     <color name="white">#FFFFFF</color>
     <color name="black">#212121</color>
     <color name="gray_light">#F5F5F5</color>
     <color name="gray_text">#757575</color>
-    <color name="orange_accent">#FF9800</color>
+    <color name="error_red">#D32F2F</color>
 </resources>
