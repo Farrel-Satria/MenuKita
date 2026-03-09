@@ -9,6 +9,7 @@ import com.example.menukita.adapter.MenuGridAdapter
 import com.example.menukita.databinding.ActivityUserDashboardBinding
 import com.example.menukita.model.Menu
 import com.example.menukita.repository.MenuRepository
+import com.example.menukita.util.CartManager
 import androidx.appcompat.widget.SearchView
 
 class UserDashboardActivity : AppCompatActivity() {
@@ -37,6 +38,7 @@ class UserDashboardActivity : AppCompatActivity() {
         observeData()
         setupSearch()
         setupCategoryFilter()
+        setupCart()
 
         binding.btnProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java).apply {
@@ -48,10 +50,16 @@ class UserDashboardActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        updateCartBadge()
+    }
+
     private fun setupRecyclerView() {
         menuAdapter = MenuGridAdapter(emptyList()) { menu ->
-            // User hanya bisa lihat info menu
-            Toast.makeText(this, "${menu.nama} - Rp ${menu.harga}", Toast.LENGTH_SHORT).show()
+            CartManager.add(menu)
+            updateCartBadge()
+            Toast.makeText(this, "Ditambahkan ke keranjang", Toast.LENGTH_SHORT).show()
         }
 
         binding.rvMenu.apply {
@@ -95,6 +103,22 @@ class UserDashboardActivity : AppCompatActivity() {
                 applyFilters()
             }
         }
+    }
+
+    private fun setupCart() {
+        binding.btnCart.setOnClickListener {
+            val intent = Intent(this, CheckoutActivity::class.java).apply {
+                putExtra("USER_NAME", userName)
+                putExtra("USER_EMAIL", userEmail)
+            }
+            startActivity(intent)
+        }
+    }
+
+    private fun updateCartBadge() {
+        val totalItems = CartManager.getTotalItems()
+        binding.tvCartBadge.text = totalItems.toString()
+        binding.tvCartBadge.visibility = if (totalItems > 0) android.view.View.VISIBLE else android.view.View.GONE
     }
 
     private fun applyFilters() {

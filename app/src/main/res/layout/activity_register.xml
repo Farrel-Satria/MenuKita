@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light"
+    android:background="@color/background_cream"
     tools:context=".RegisterActivity">
 
     <View
@@ -48,10 +48,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama Lengkap"
-                app:boxStrokeColor="@color/primary_green"
-                app:hintTextColor="@color/primary_green"
+                app:boxStrokeColor="@color/primary_orange"
+                app:hintTextColor="@color/primary_orange"
                 app:startIconDrawable="@android:drawable/ic_menu_edit"
-                app:startIconTint="@color/primary_green">
+                app:startIconTint="@color/primary_orange">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
@@ -65,10 +65,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Email"
-                app:boxStrokeColor="@color/primary_green"
-                app:hintTextColor="@color/primary_green"
+                app:boxStrokeColor="@color/primary_orange"
+                app:hintTextColor="@color/primary_orange"
                 app:startIconDrawable="@android:drawable/ic_dialog_email"
-                app:startIconTint="@color/primary_green">
+                app:startIconTint="@color/primary_orange">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
@@ -82,11 +82,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Password"
-                app:boxStrokeColor="@color/primary_green"
+                app:boxStrokeColor="@color/primary_orange"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/primary_green"
+                app:hintTextColor="@color/primary_orange"
                 app:startIconDrawable="@android:drawable/ic_lock_lock"
-                app:startIconTint="@color/primary_green">
+                app:startIconTint="@color/primary_orange">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                 android:text="DAFTAR SEKARANG"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@color/primary_green"
+                app:backgroundTint="@color/accent_green"
                 app:cornerRadius="8dp" />
 
                 <TextView
@@ -111,7 +111,7 @@
                 android:layout_marginTop="24dp"
                 android:padding="8dp"
                 android:text="Sudah punya akun? Masuk"
-                android:textColor="@color/primary_green"
+                android:textColor="@color/primary_orange"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

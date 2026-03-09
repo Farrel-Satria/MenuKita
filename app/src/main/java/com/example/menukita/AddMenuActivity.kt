@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.menukita.databinding.ActivityAddMenuBinding
 import com.example.menukita.model.Menu
 import com.example.menukita.repository.MenuRepository
-import com.example.menukita.util.NetworkUtils
 import android.widget.ArrayAdapter
 import com.bumptech.glide.Glide
 
@@ -35,11 +34,11 @@ class AddMenuActivity : AppCompatActivity() {
                 if (url.isNotEmpty()) {
                     Glide.with(this@AddMenuActivity)
                         .load(url)
-                        .placeholder(android.R.drawable.ic_menu_report_image)
-                        .error(android.R.drawable.ic_menu_report_image)
+                        .placeholder(R.drawable.placeholder_food)
+                        .error(R.drawable.placeholder_food)
                         .into(binding.ivPreview)
                 } else {
-                    binding.ivPreview.setImageResource(android.R.drawable.ic_menu_report_image)
+                    binding.ivPreview.setImageResource(R.drawable.placeholder_food)
                 }
             }
         })
@@ -56,6 +55,7 @@ class AddMenuActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, kategoriList)
         binding.actKategori.setAdapter(adapter)
     }
+
 
     private fun setupAction() {
         binding.btnSimpan.setOnClickListener {

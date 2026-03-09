@@ -19,7 +19,7 @@
             android:id="@+id/ivMenu"
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:background="@color/gray_light"
+            android:background="@color/neutral_light"
             android:scaleType="centerCrop"
             android:src="@android:drawable/ic_menu_report_image" />
 
@@ -38,7 +38,7 @@
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="2dp"
                 android:text="Makanan"
-                android:textColor="@color/primary_dark_green"
+                android:textColor="@color/primary_orange"
                 android:textSize="10sp"
                 android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="Nama Menu"
-                android:textColor="@color/black"
+                android:textColor="@color/neutral_dark"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Rp 0"
-                android:textColor="@color/orange_accent"
+                android:textColor="@color/primary_orange"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 

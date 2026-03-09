@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light"
+    android:background="@color/background_cream"
     tools:context=".EditMenuActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary_green"
+            android:background="@color/primary_orange"
             app:navigationIcon="@android:drawable/ic_menu_revert"
             app:navigationIconTint="@color/white"
             app:title="Edit Menu"
@@ -51,8 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nama Menu"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    app:boxStrokeColor="@color/primary_orange"
+                    app:hintTextColor="@color/primary_orange">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etNamaMenu"
                         android:layout_width="match_parent"
@@ -67,8 +67,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:hint="Kategori"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    app:boxStrokeColor="@color/primary_orange"
+                    app:hintTextColor="@color/primary_orange">
                     <AutoCompleteTextView
                         android:id="@+id/actKategori"
                         android:layout_width="match_parent"
@@ -83,8 +83,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:hint="Harga (Rp)"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    app:boxStrokeColor="@color/primary_orange"
+                    app:hintTextColor="@color/primary_orange">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etHargaMenu"
                         android:layout_width="match_parent"
@@ -99,8 +99,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:hint="URL Gambar"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    app:boxStrokeColor="@color/primary_orange"
+                    app:hintTextColor="@color/primary_orange">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etImageUrl"
                         android:layout_width="match_parent"
@@ -133,8 +133,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:hint="Deskripsi"
-                    app:boxStrokeColor="@color/primary_green"
-                    app:hintTextColor="@color/primary_green">
+                    app:boxStrokeColor="@color/primary_orange"
+                    app:hintTextColor="@color/primary_orange">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etDeskripsiMenu"
                         android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                     android:text="UPDATE MENU"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    app:backgroundTint="@color/primary_green"
+                    app:backgroundTint="@color/accent_green"
                     app:cornerRadius="12dp" />
 
                 <!-- Tombol Hapus -->

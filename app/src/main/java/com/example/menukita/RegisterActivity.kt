@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.menukita.databinding.ActivityRegisterBinding
-import com.example.menukita.model.User
 import com.example.menukita.repository.UserRepository
 
 class RegisterActivity : AppCompatActivity() {
@@ -41,15 +40,8 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val newUser = User(
-                id = null,
-                name = name,
-                email = email,
-                password = password,
-            )
-
             binding.btnRegister.isEnabled = false
-            userRepository.register(newUser) { success: Boolean, message: String? ->
+            userRepository.register(name, email, password, "user") { success: Boolean, message: String? ->
                 binding.btnRegister.isEnabled = true
                 if (success) {
                     Toast.makeText(this, "Registrasi berhasil! Silakan login", Toast.LENGTH_SHORT).show()

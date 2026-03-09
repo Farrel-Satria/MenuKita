@@ -9,9 +9,6 @@ import com.example.menukita.model.Menu
 import com.example.menukita.repository.MenuRepository
 import com.example.menukita.util.NetworkUtils
 
-import android.net.Uri
-import android.content.Intent
-import androidx.activity.result.contract.ActivityResultContracts
 import android.widget.ArrayAdapter
 import com.bumptech.glide.Glide
 
@@ -63,6 +60,7 @@ class EditMenuActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, kategoriList)
         binding.actKategori.setAdapter(adapter)
     }
+
 
     private fun getIntentData() {
         menuId = intent.getStringExtra("MENU_ID")

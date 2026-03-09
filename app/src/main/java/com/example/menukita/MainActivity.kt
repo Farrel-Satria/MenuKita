@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         setupAdvancedFeatures()
         setupLogout() // Logout tetap ada
         setupProfile() // Tambah fungsi Profil
+        setupOrders()
 
         binding.fabAdd.setOnClickListener {
             val intent = Intent(this, AddMenuActivity::class.java)
@@ -63,11 +64,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUIBasedOnRole() {
         if (userRole == "admin") {
-            binding.fabAdd.visibility = android.view.View.VISIBLE
-            binding.tvWelcomeUser.text = "Halo, $userName! 👋"
+            binding.fabAdd.visibility = android.view.View.VISIBLE\n            binding.btnOrders.visibility = android.view.View.VISIBLE\n            binding.tvWelcomeUser.text = "Halo, $userName! 👋"
         } else {
-            binding.fabAdd.visibility = android.view.View.GONE
-            binding.tvWelcomeUser.text = "Halo, $userName! 👋"
+            binding.fabAdd.visibility = android.view.View.GONE\n            binding.btnOrders.visibility = android.view.View.GONE\n            binding.tvWelcomeUser.text = "Halo, $userName! 👋"
         }
     }
 
@@ -90,6 +89,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSort.setOnClickListener {
             showSortDialog()
+        }
+    }
+
+    private fun setupOrders() {
+        binding.btnOrders.setOnClickListener {
+            if (userRole == "admin") {
+                val intent = Intent(this, AdminOrdersActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Hanya admin yang bisa melihat pesanan", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -221,3 +231,4 @@ class MainActivity : AppCompatActivity() {
         binding.tvEmptyState.visibility = if (filteredList.isEmpty()) android.view.View.VISIBLE else android.view.View.GONE
     }
 }
+

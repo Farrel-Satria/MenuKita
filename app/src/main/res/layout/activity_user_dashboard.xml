@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_light">
+    android:background="@color/background_cream">
 
     <!-- Top Header -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_green"
+        android:background="@color/primary_orange"
         app:elevation="0dp">
 
         <LinearLayout
@@ -58,6 +58,32 @@
                         android:textSize="12sp" />
                 </LinearLayout>
 
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="6dp">
+
+                    <ImageButton
+                        android:id="@+id/btnCart"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@android:drawable/ic_menu_share"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tvCartBadge"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="end|top"
+                        android:background="@drawable/bg_badge_circle"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
                 <ImageButton
                     android:id="@+id/btnProfile"
                     android:layout_width="40dp"
@@ -83,6 +109,61 @@
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
                     app:queryHint="Cari menu favoritmu..." />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Promo Banner -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_promo_banner"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Promo Spesial"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:alpha="0.9" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gratis Ongkir"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Minimal order Rp 50.000"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:alpha="0.85" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/placeholder_food"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
@@ -110,9 +191,10 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="Semua"
-                    app:chipBackgroundColor="@color/gray_light"
-                    app:chipStrokeColor="@color/primary_green"
-                    app:chipStrokeWidth="1dp" />
+                    app:chipBackgroundColor="@color/chip_bg"
+                    app:chipStrokeColor="@color/primary_orange"
+                    app:chipStrokeWidth="1dp"
+                    android:textColor="@color/chip_text" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipMakanan"
@@ -120,7 +202,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Makanan"
-                    app:chipBackgroundColor="@color/gray_light" />
+                    app:chipBackgroundColor="@color/chip_bg"
+                    app:chipStrokeColor="@color/primary_orange"
+                    app:chipStrokeWidth="1dp"
+                    android:textColor="@color/chip_text" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipMinuman"
@@ -128,7 +213,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minuman"
-                    app:chipBackgroundColor="@color/gray_light" />
+                    app:chipBackgroundColor="@color/chip_bg"
+                    app:chipStrokeColor="@color/primary_orange"
+                    app:chipStrokeWidth="1dp"
+                    android:textColor="@color/chip_text" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipDessert"
@@ -136,7 +224,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dessert"
-                    app:chipBackgroundColor="@color/gray_light" />
+                    app:chipBackgroundColor="@color/chip_bg"
+                    app:chipStrokeColor="@color/primary_orange"
+                    app:chipStrokeWidth="1dp"
+                    android:textColor="@color/chip_text" />
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
     </com.google.android.material.appbar.AppBarLayout>
@@ -145,7 +236,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_light"
+        android:background="@color/background_cream"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -168,3 +259,4 @@
     </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+

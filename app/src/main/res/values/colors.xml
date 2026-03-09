@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Green Theme (Food Choice) -->
-    <color name="primary_green">#00A36C</color>
-    <color name="primary_dark_green">#007A51</color>
-    <color name="light_green">#E8F5E9</color>
-    
+    <!-- Warm Food Ordering Palette -->
+    <color name="primary_orange">#FF6B35</color>
+    <color name="primary_orange_dark">#E85A2A</color>
+    <color name="accent_green">#2ECC71</color>
+    <color name="accent_green_dark">#27AE60</color>
+    <color name="neutral_dark">#2C3E50</color>
+    <color name="neutral_light">#ECEFF1</color>
+    <color name="background_cream">#F9F7F4</color>
+    <color name="badge_orange">#FFE6DA</color>
+
+    <!-- Legacy Names (mapped to new palette) -->
+    <color name="primary_green">#2ECC71</color>
+    <color name="primary_dark_green">#27AE60</color>
+    <color name="light_green">#F9F7F4</color>
+
     <!-- Accent Colors -->
-    <color name="orange_accent">#FF9800</color>
+    <color name="orange_accent">#FF6B35</color>
     <color name="gold_accent">#FFC107</color>
-    
+
     <!-- Standard Colors -->
     <color name="white">#FFFFFF</color>
-    <color name="black">#212121</color>
-    <color name="gray_light">#F5F5F5</color>
-    <color name="gray_text">#757575</color>
+    <color name="black">#2C3E50</color>
+    <color name="gray_light">#F9F7F4</color>
+    <color name="gray_text">#6B7280</color>
     <color name="error_red">#D32F2F</color>
 </resources>

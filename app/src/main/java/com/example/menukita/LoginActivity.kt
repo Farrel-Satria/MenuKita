@@ -42,31 +42,27 @@ class LoginActivity : AppCompatActivity() {
             }
 
             binding.btnLogin.isEnabled = false
-            userRepository.login(email) { user: User?, message: String? ->
+            userRepository.login(email, password) { user: User?, message: String? ->
                 binding.btnLogin.isEnabled = true
                 if (user != null) {
-                    if (user.password == password) {
-                        Toast.makeText(this, "Berhasil masuk sebagai ${user.role}", Toast.LENGTH_SHORT).show()
-                        
-                        // Route berdasarkan role
-                        if (user.role == "admin") {
-                            val intent = Intent(this, MainActivity::class.java).apply {
-                                putExtra("USER_ROLE", user.role)
-                                putExtra("USER_NAME", user.name)
-                                putExtra("USER_EMAIL", user.email)
-                            }
-                            startActivity(intent)
-                        } else {
-                            val intent = Intent(this, UserDashboardActivity::class.java).apply {
-                                putExtra("USER_NAME", user.name)
-                                putExtra("USER_EMAIL", user.email)
-                            }
-                            startActivity(intent)
+                    Toast.makeText(this, "Berhasil masuk sebagai ${user.role}", Toast.LENGTH_SHORT).show()
+                    
+                    // Route berdasarkan role
+                    if (user.role == "admin") {
+                        val intent = Intent(this, MainActivity::class.java).apply {
+                            putExtra("USER_ROLE", user.role)
+                            putExtra("USER_NAME", user.name)
+                            putExtra("USER_EMAIL", user.email)
                         }
-                        finish()
+                        startActivity(intent)
                     } else {
-                        Toast.makeText(this, "Password salah!", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, UserDashboardActivity::class.java).apply {
+                            putExtra("USER_NAME", user.name)
+                            putExtra("USER_EMAIL", user.email)
+                        }
+                        startActivity(intent)
                     }
+                    finish()
                 } else {
                     Toast.makeText(this, "Login Gagal: $message", Toast.LENGTH_LONG).show()
                 }
