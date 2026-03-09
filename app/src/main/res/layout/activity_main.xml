@@ -188,7 +188,7 @@
                     android:layout_height="wrap_content"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
-                    app:queryHint="Cari menu..." />
+                    app:queryHint="Cari menu..."/>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
@@ -197,26 +197,27 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:paddingBottom="12dp">
-            
+            android:paddingBottom="12dp"
+            android:scrollbars="none">
+
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupKategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                app:selectionRequired="true"
                 app:singleLine="true"
-                app:singleSelection="true"
-                app:selectionRequired="true">
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipSemua"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semua"
                     android:checked="true"
+                    android:text="Semua"
+                    android:textColor="@color/black"
                     app:chipBackgroundColor="@color/gray_light"
                     app:chipStrokeColor="@color/primary_green"
                     app:chipStrokeWidth="1dp" />
@@ -227,6 +228,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Makanan"
+                    android:textColor="@color/black"
                     app:chipBackgroundColor="@color/gray_light" />
 
                 <com.google.android.material.chip.Chip
@@ -235,6 +237,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minuman"
+                    android:textColor="@color/black"
                     app:chipBackgroundColor="@color/gray_light" />
 
                 <com.google.android.material.chip.Chip
@@ -243,6 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dessert"
+                    android:textColor="@color/black"
                     app:chipBackgroundColor="@color/gray_light" />
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
