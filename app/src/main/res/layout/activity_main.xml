@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
-                    app:queryHint="Cari menu..." />
+                    app:queryHint="Cari menu..."/>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Promo Banner -->
@@ -260,26 +260,26 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:paddingBottom="12dp">
-            
+            android:paddingBottom="12dp"
+            android:scrollbars="none">
+
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupKategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                app:selectionRequired="true"
                 app:singleLine="true"
-                app:singleSelection="true"
-                app:selectionRequired="true">
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipSemua"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Semua"
                     android:checked="true"
+                    android:text="Semua"
                     app:chipBackgroundColor="@color/chip_bg"
                     app:chipStrokeColor="@color/primary_orange"
                     app:chipStrokeWidth="1dp"
