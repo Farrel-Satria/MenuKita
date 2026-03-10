@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_orange">#FF8A5B</color>
+    <color name="primary_orange_dark">#FF6B35</color>
+    <color name="accent_green">#4ADE80</color>
+    <color name="accent_green_dark">#22C55E</color>
+    <color name="neutral_dark">#F1F5F9</color>
+    <color name="neutral_light">#334155</color>
+    <color name="background_cream">#0F172A</color>
+    <color name="badge_orange">#3B1D0E</color>
+    <color name="surface">#111827</color>
+    <color name="surface_variant">#1F2937</color>
+    <color name="outline_light">#374151</color>
+    <color name="ripple_orange">#33FFB36B</color>
+
+    <color name="primary_gradient_start">#FF6B35</color>
+    <color name="primary_gradient_end">#FF8A5B</color>
+    <color name="hero_gradient_start">#1F2937</color>
+    <color name="hero_gradient_end">#111827</color>
+
+    <color name="primary_green">#4ADE80</color>
+    <color name="primary_dark_green">#22C55E</color>
+    <color name="light_green">#0F172A</color>
+
+    <color name="orange_accent">#FF8A5B</color>
+    <color name="gold_accent">#FBBF24</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#F1F5F9</color>
+    <color name="gray_light">#1F2937</color>
+    <color name="gray_text">#9CA3AF</color>
+    <color name="error_red">#F87171</color>
+    <color name="success_green">#4ADE80</color>
+    <color name="warning_yellow">#FBBF24</color>
+    <color name="tutorial_overlay">#B3000000</color>
+    <color name="splash_progress_track">#33FFFFFF</color>
+    <color name="glow_featured">#66FBBF24</color>
+    <color name="shimmer_light">#66FFFFFF</color>
+    <color name="shimmer_dark">#00FFFFFF</color>
+    <color name="particle_soft">#99FFFFFF</color>
+    <color name="quote_bg">#2A2114</color>
+    <color name="highlight_chip_bg">#664B2E00</color>
+    <color name="highlight_chip_text">#FFFFC266</color>
+
+    <color name="skeleton_base">#1F2937</color>
+    <color name="skeleton_highlight">#2B3444</color>
+
+    <color name="overlay_orange">#66FF8A5B</color>
+    <color name="overlay_green">#664ADE80</color>
+    <color name="overlay_gold">#66FBBF24</color>
+
+    <color name="bottom_nav_active">#FF8A5B</color>
+    <color name="bottom_nav_inactive">#94A3B8</color>
+</resources>

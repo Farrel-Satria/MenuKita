@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tutorialContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTutorial"
+        style="@style/Widget.MenuKita.Card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        app:cardBackgroundColor="@color/surface"
+        app:cardElevation="@dimen/elevation_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_16">
+
+            <TextView
+                android:id="@+id/tvTutorialStep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/4"
+                android:textAppearance="@style/TextAppearance.MenuKita.Label"
+                android:textColor="@color/primary_orange"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTutorialTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:text="Fitur Utama"
+                android:textAppearance="@style/TextAppearance.MenuKita.Title"
+                android:textColor="@color/neutral_dark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTutorialMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_4"
+                android:text="Gunakan fitur ini untuk memulai."
+                android:textAppearance="@style/TextAppearance.MenuKita.Body"
+                android:textColor="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTutorialSkip"
+                    style="@style/Widget.MenuKita.Button.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lewati"
+                    android:textColor="@color/gray_text" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTutorialNext"
+                    style="@style/Widget.MenuKita.Button.Filled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_8"
+                    android:text="Lanjut"
+                    app:backgroundTint="@color/primary_orange"
+                    app:cornerRadius="@dimen/radius_md" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

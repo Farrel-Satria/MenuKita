@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/space_16">
+
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aksi Menu"
+        android:textStyle="bold"
+        android:textColor="@color/neutral_dark" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnActionAdd"
+        style="@style/Widget.MenuKita.Button.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
+        android:text="Tambah ke Keranjang"
+        app:backgroundTint="@color/accent_green" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnActionFavorite"
+        style="@style/Widget.MenuKita.Button.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:text="Tambah Favorit" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnActionShare"
+        style="@style/Widget.MenuKita.Button.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:text="Bagikan" />
+</LinearLayout>

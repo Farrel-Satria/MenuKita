@@ -1,0 +1,97 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MenuKita" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Core Brand Colors -->
+        <item name="colorPrimary">@color/primary_orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/badge_orange</item>
+        <item name="colorOnPrimaryContainer">@color/primary_orange_dark</item>
+
+        <item name="colorSecondary">@color/accent_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/success_green_light</item>
+        <item name="colorOnSecondaryContainer">@color/accent_green_dark</item>
+
+        <item name="colorTertiary">@color/gold_accent</item>
+        <item name="colorOnTertiary">@color/neutral_dark</item>
+        <item name="colorTertiaryContainer">@color/quote_bg</item>
+        <item name="colorOnTertiaryContainer">@color/neutral_dark</item>
+
+        <!-- Surface & Background -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorSurfaceContainer">@color/card_elevated</item>
+        <item name="colorSurfaceContainerHigh">@color/card_filled</item>
+        <item name="colorSurfaceContainerHighest">@color/card_filled</item>
+        <item name="colorSurfaceContainerLow">@color/neutral_light</item>
+        <item name="colorSurfaceContainerLowest">@color/background_cream</item>
+
+        <!-- Error States -->
+        <item name="colorError">@color/error_red</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/error_red_light</item>
+        <item name="colorOnErrorContainer">@color/error_red</item>
+
+        <!-- Outline & Dividers -->
+        <item name="colorOutline">@color/outline_medium</item>
+        <item name="colorOutlineVariant">@color/outline_light</item>
+        <item name="android:colorBackground">@color/background_cream</item>
+        <item name="colorSurfaceInverse">@color/neutral_dark</item>
+        <item name="colorOnSurfaceInverse">@color/neutral_light</item>
+        <item name="colorPrimaryInverse">@color/primary_orange_light</item>
+
+        <!-- Window & Status Bar -->
+        <item name="android:windowBackground">@color/background_cream</item>
+        <item name="android:statusBarColor">@color/primary_orange_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+
+        <!-- Enhanced Typography -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.MenuKita.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.MenuKita.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.MenuKita.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.MenuKita.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.MenuKita.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.MenuKita.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.MenuKita.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.MenuKita.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.MenuKita.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.MenuKita.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.MenuKita.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.MenuKita.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.MenuKita.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.MenuKita.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.MenuKita.LabelSmall</item>
+
+        <!-- Modern Component Styles -->
+        <item name="materialButtonStyle">@style/Widget.MenuKita.Button.Filled</item>
+        <item name="materialCardViewStyle">@style/Widget.MenuKita.Card.Elevated</item>
+        <item name="textInputStyle">@style/Widget.MenuKita.TextInputLayout.Outlined</item>
+        <item name="editTextStyle">@style/Widget.MenuKita.TextInputEditText</item>
+        <item name="chipStyle">@style/Widget.MenuKita.Chip</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.MenuKita.Progress</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.MenuKita.Progress.Linear</item>
+        <item name="switchStyle">@style/Widget.MenuKita.Switch</item>
+        <item name="checkboxStyle">@style/Widget.MenuKita.Checkbox</item>
+        <item name="radioButtonStyle">@style/Widget.MenuKita.RadioButton</item>
+        <item name="floatingActionButtonStyle">@style/Widget.MenuKita.FAB</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MenuKita.BottomSheet</item>
+        <item name="snackbarStyle">@style/Widget.MenuKita.Snackbar</item>
+        <item name="tabStyle">@style/Widget.MenuKita.Tab</item>
+
+        <!-- Shape & Elevation -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MenuKita.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MenuKita.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.MenuKita.LargeComponent</item>
+
+        <!-- Motion & Animation -->
+        <item name="motionDurationShort1">@integer/motion_duration_short1</item>
+        <item name="motionDurationShort2">@integer/motion_duration_short2</item>
+        <item name="motionDurationMedium1">@integer/motion_duration_medium1</item>
+        <item name="motionDurationLong1">@integer/motion_duration_long1</item>
+    </style>
+
+    <style name="Theme.MenuKita" parent="Base.Theme.MenuKita" />
+</resources>

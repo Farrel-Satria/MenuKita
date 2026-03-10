@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Typography scale -->
+    <style name="TextAppearance.MenuKita.Display" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.Headline" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.Label" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Buttons -->
+    <style name="Widget.MenuKita.Button.Filled" parent="Widget.Material3.Button">
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="rippleColor">@color/ripple_orange</item>
+    </style>
+
+    <style name="Widget.MenuKita.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="strokeColor">@color/primary_orange</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.MenuKita.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Cards -->
+    <style name="Widget.MenuKita.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardElevation">@dimen/elevation_sm</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- TextInput -->
+    <style name="Widget.MenuKita.TextInputLayout.Outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/surface</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_md</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_md</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_md</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_md</item>
+        <item name="boxStrokeColor">@color/outline_light</item>
+        <item name="hintTextColor">@color/neutral_dark</item>
+    </style>
+
+    <style name="Widget.MenuKita.TextInputEditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/neutral_dark</item>
+        <item name="android:textColorHint">@color/gray_text</item>
+    </style>
+
+    <!-- Chips -->
+    <style name="Widget.MenuKita.Chip" parent="Widget.Material3.Chip.Assist">
+        <item name="chipCornerRadius">@dimen/radius_pill</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/primary_orange</item>
+        <item name="android:textColor">@color/chip_text</item>
+    </style>
+
+    <!-- Progress -->
+    <style name="Widget.MenuKita.Progress" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorColor">@color/primary_orange</item>
+        <item name="trackColor">@color/neutral_light</item>
+    </style>
+
+    <!-- Bottom sheets -->
+    <style name="Theme.MenuKita.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.MenuKita.BottomSheet</item>
+        <item name="android:windowAnimationStyle">@style/Animation_MenuKita_BottomSheet</item>
+    </style>
+
+    <style name="Widget.MenuKita.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.MenuKita.BottomSheet</item>
+    </style>
+
+    <style name="ShapeAppearance.MenuKita.BottomSheet" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/radius_lg</item>
+        <item name="cornerSizeTopRight">@dimen/radius_lg</item>
+    </style>
+
+    <style name="Animation_MenuKita_BottomSheet">
+        <item name="android:windowEnterAnimation">@anim/slide_up_fade</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_fade</item>
+    </style>
+
+    <!-- Enhanced Typography Scale -->
+    <style name="TextAppearance.MenuKita.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textSize">57sp</item>
+        <item name="android:letterSpacing">-0.015</item>
+        <item name="android:lineHeight">64sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textSize">45sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">52sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textSize">36sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">44sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">40sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">36sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">32sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">28sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.015</item>
+        <item name="android:lineHeight">24sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.015</item>
+        <item name="android:lineHeight">24sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.025</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineHeight">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.MenuKita.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Enhanced Card Styles -->
+    <style name="Widget.MenuKita.Card.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardElevation">@dimen/elevation_sm</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">@color/card_elevated</item>
+    </style>
+
+    <style name="Widget.MenuKita.Card.Outlined" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/outline_light</item>
+        <item name="cardBackgroundColor">@color/card_outlined</item>
+    </style>
+
+    <style name="Widget.MenuKita.Card.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">@color/card_filled</item>
+    </style>
+
+    <!-- Progress Indicators -->
+    <style name="Widget.MenuKita.Progress.Linear" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="indicatorColor">@color/primary_orange</item>
+        <item name="trackColor">@color/neutral_light</item>
+        <item name="trackThickness">4dp</item>
+    </style>
+
+    <!-- Form Controls -->
+    <style name="Widget.MenuKita.Switch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="thumbTint">@color/primary_orange</item>
+        <item name="trackTint">@color/outline_light</item>
+    </style>
+
+    <style name="Widget.MenuKita.Checkbox" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/primary_orange</item>
+    </style>
+
+    <style name="Widget.MenuKita.RadioButton" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/primary_orange</item>
+    </style>
+
+    <!-- FAB -->
+    <style name="Widget.MenuKita.FAB" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/primary_orange</item>
+        <item name="tint">@color/white</item>
+        <item name="fabSize">normal</item>
+    </style>
+
+    <!-- Bottom Sheet -->
+    <style name="ThemeOverlay.MenuKita.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="android:colorBackground">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurface">@color/surface</item>
+    </style>
+
+    <!-- Snackbar -->
+    <style name="Widget.MenuKita.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="backgroundTint">@color/neutral_dark</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Tabs -->
+    <style name="Widget.MenuKita.Tab" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorColor">@color/primary_orange</item>
+        <item name="tabSelectedTextColor">@color/primary_orange</item>
+        <item name="tabTextColor">@color/text_secondary</item>
+        <item name="tabIndicatorHeight">3dp</item>
+    </style>
+
+    <!-- Shape Appearances -->
+    <style name="ShapeAppearance.MenuKita.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_sm</item>
+    </style>
+
+    <style name="ShapeAppearance.MenuKita.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_md</item>
+    </style>
+
+    <style name="ShapeAppearance.MenuKita.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_lg</item>
+    </style>
+</resources>

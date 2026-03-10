@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.MenuKita.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_12"
+    android:layout_marginVertical="@dimen/space_8"
+    android:foreground="?attr/selectableItemBackground"
+    android:stateListAnimator="@animator/press_scale"
+    app:cardBackgroundColor="@color/surface">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="@dimen/radius_md"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/neutral_light"
+                    android:contentDescription="Foto menu"
+                    android:scaleType="centerCrop"
+                    android:src="@android:drawable/ic_menu_report_image" />
+
+                <View
+                    android:id="@+id/viewOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_image_overlay" />
+
+                <ImageView
+                    android:id="@+id/ivFavorite"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="@dimen/space_6"
+                    android:src="@android:drawable/btn_star_big_on"
+                    android:visibility="gone"
+                    app:tint="@color/gold_accent" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tvKategoriBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_16"
+            android:background="@drawable/bg_badge_kategori"
+            android:paddingHorizontal="@dimen/space_8"
+            android:paddingVertical="@dimen/space_2"
+            android:text="Makanan"
+            android:textColor="@color/primary_orange"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/cardImage"
+            app:layout_constraintTop_toTopOf="@id/cardImage" />
+
+        <TextView
+            android:id="@+id/tvNamaMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Nama Menu"
+            android:textColor="@color/neutral_dark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvKategoriBadge"
+            app:layout_constraintTop_toBottomOf="@id/tvKategoriBadge" />
+
+        <TextView
+            android:id="@+id/tvHargaMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Rp 0"
+            android:textColor="@color/primary_orange"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tvNamaMenu"
+            app:layout_constraintTop_toBottomOf="@id/tvNamaMenu" />
+
+        <LinearLayout
+            android:id="@+id/rowRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/tvNamaMenu"
+            app:layout_constraintTop_toBottomOf="@id/tvHargaMenu">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@android:drawable/btn_star_big_on"
+                app:tint="@color/gold_accent" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_4"
+                android:text="4.8"
+                android:textColor="@color/gray_text"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDeskripsiMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Deskripsi menu yang sangat lezat ini..."
+            android:textColor="@color/gray_text"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvNamaMenu"
+            app:layout_constraintTop_toBottomOf="@id/rowRating" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

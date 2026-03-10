@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MenuKita" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_orange</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/badge_orange</item>
+        <item name="colorOnPrimaryContainer">@color/neutral_dark</item>
+
+        <item name="colorSecondary">@color/accent_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/neutral_light</item>
+        <item name="colorOnSecondaryContainer">@color/neutral_dark</item>
+
+        <item name="colorTertiary">@color/gold_accent</item>
+        <item name="colorOnTertiary">@color/neutral_dark</item>
+
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/neutral_dark</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/gray_text</item>
+
+        <item name="android:windowBackground">@color/background_cream</item>
+        <item name="android:statusBarColor">@color/primary_orange</item>
+
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.MenuKita.Display</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.MenuKita.Headline</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.MenuKita.Title</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.MenuKita.Body</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.MenuKita.Label</item>
+
+        <item name="materialButtonStyle">@style/Widget.MenuKita.Button.Filled</item>
+        <item name="materialCardViewStyle">@style/Widget.MenuKita.Card</item>
+        <item name="textInputStyle">@style/Widget.MenuKita.TextInputLayout.Outlined</item>
+        <item name="editTextStyle">@style/Widget.MenuKita.TextInputEditText</item>
+        <item name="chipStyle">@style/Widget.MenuKita.Chip</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.MenuKita.Progress</item>
+    </style>
+</resources>

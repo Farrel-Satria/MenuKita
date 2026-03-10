@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.menukita.ui.ZoomImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ivPagerImage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="Gambar menu"
+    android:scaleType="centerCrop"
+    android:src="@drawable/placeholder_food" />

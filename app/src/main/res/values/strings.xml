@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MenuKita</string>
+    <string name="transition_menu_image">menu_image</string>
+
+    <!-- Motion Easing -->
+    <string name="motion_easing_standard">cubic-bezier(0.2, 0.0, 0.0, 1.0)</string>
+    <string name="motion_easing_emphasized">cubic-bezier(0.05, 0.7, 0.1, 1.0)</string>
+    <string name="motion_easing_decelerate">cubic-bezier(0.0, 0.0, 0.2, 1.0)</string>
+    <string name="motion_easing_accelerate">cubic-bezier(0.3, 0.0, 1.0, 1.0)</string>
+
+    <!-- UI Strings -->
+    <string name="navigation_home">Beranda</string>
+    <string name="navigation_orders">Pesanan</string>
+    <string name="navigation_profile">Profil</string>
+    <string name="navigation_cart">Keranjang</string>
+    <string name="btn_add_to_cart">Tambah ke Keranjang</string>
+    <string name="btn_order_now">Pesan Sekarang</string>
+    <string name="btn_view_details">Lihat Detail</string>
+    <string name="label_price">Harga</string>
+    <string name="label_quantity">Jumlah</string>
+    <string name="label_total">Total</string>
+    <string name="msg_empty_cart">Keranjang kosong</string>
+    <string name="msg_loading">Memuat...</string>
+    <string name="msg_error">Terjadi kesalahan</string>
+    <string name="msg_success">Berhasil</string>
+</resources>

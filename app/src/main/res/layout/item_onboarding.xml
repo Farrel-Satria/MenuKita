@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/space_24">
+
+    <ImageView
+        android:id="@+id/ivOnboarding"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:contentDescription="Ilustrasi onboarding"
+        android:src="@drawable/placeholder_food" />
+
+    <TextView
+        android:id="@+id/tvOnboardingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        android:text="Judul Onboarding"
+        android:textAppearance="@style/TextAppearance.MenuKita.Headline"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvOnboardingDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:gravity="center"
+        android:text="Deskripsi singkat untuk onboarding."
+        android:textAppearance="@style/TextAppearance.MenuKita.Body"
+        android:textColor="@color/white"
+        android:alpha="0.9" />
+</LinearLayout>
