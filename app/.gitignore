@@ -1,16 +1,6 @@
-# ===== Android =====
-*.iml
-.gradle
-/local.properties
-/.idea
-/.idea/*
+# App-specific build files
 /build
-/captures
-.externalNativeBuild
+*.iml
 
-# ===== Firebase (SANGAT PENTING) =====
-google-services.json
-
-# ===== OS =====
-.DS_Store
-Thumbs.db
+# Firebase (Kalau mau di-ignore silakan aktifkan baris di bawah)
+# /google-services.json

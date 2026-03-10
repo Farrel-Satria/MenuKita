@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "815245973623",
+    "firebase_url": "https://menukita-feb11-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "menukita-feb11",
+    "storage_bucket": "menukita-feb11.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815245973623:android:9b0dff5631f303722c4e72",
+        "android_client_info": {
+          "package_name": "com.example.menukita"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY8u2j9oem9qTPlrYooLvXZIDyrsGrvNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

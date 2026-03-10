@@ -1,16 +1,32 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+# ===== Core Android/Gradle =====
+.gradle/
+build/
 .gradle-user/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# ===== Android Studio (IntelliJ) =====
+*.iml
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# ===== OS (Windows/Mac) =====
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+
+# ===== Firebase & Google =====
+# (Hapus baris di bawah ini kalau kamu mau upload google-services.json ke GitHub)
+# google-services.json
+
+# ===== Miscellaneous =====
+*.log
+.kotlin/
