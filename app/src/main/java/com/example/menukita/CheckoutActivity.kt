@@ -14,6 +14,7 @@ import com.example.menukita.repository.OrderRepository
 import com.example.menukita.util.CartItem
 import com.example.menukita.util.CartManager
 import com.example.menukita.util.UiFeedback
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.snackbar.Snackbar
 import java.text.NumberFormat
 import java.util.Locale
@@ -35,7 +36,18 @@ class CheckoutActivity : AppCompatActivity() {
         setupToolbar()
         setupRecycler()
         bindSummary()
+        setupOrderTypeSelection()
         setupPlaceOrder()
+    }
+
+    private fun setupOrderTypeSelection() {
+        binding.rgOrderType.setOnCheckedChangeListener { _, checkedId ->
+            if (checkedId == R.id.rbTakeAway) {
+                binding.tilAddress.visibility = android.view.View.VISIBLE
+            } else {
+                binding.tilAddress.visibility = android.view.View.GONE
+            }
+        }
     }
 
     private fun setupToolbar() {
@@ -115,7 +127,7 @@ class CheckoutActivity : AppCompatActivity() {
     private fun updateEmptyState() {
         val isEmpty = CartManager.getItems().isEmpty()
         binding.tvEmptyCart.visibility = if (isEmpty) android.view.View.VISIBLE else android.view.View.GONE
-        binding.ivEmptyCart.visibility = if (isEmpty) android.view.View.VISIBLE else android.view.View.GONE
+        binding.lottieEmptyCart.visibility = if (isEmpty) android.view.View.VISIBLE else android.view.View.GONE
     }
 
     private fun setupPlaceOrder() {
@@ -130,7 +142,16 @@ class CheckoutActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val paymentMethod = if (binding.rbTransfer.isChecked) "Transfer" else "Cash"
+            val paymentMethod = if (binding.rbTransfer.isChecked) "Transfer Bank" else "Tunai"
+            val orderType = if (binding.rbTakeAway.isChecked) "Bungkus" else "Makan Sini"
+            val notes = binding.etNotes.text.toString().trim()
+            val address = binding.etAddress.text.toString().trim()
+
+            if (orderType == "Bungkus" && address.isEmpty()) {
+                UiFeedback.showToast(this, "Harap isi alamat pengiriman untuk pesanan bungkus", UiFeedback.Type.ERROR)
+                return@setOnClickListener
+            }
+
             val items = CartManager.getItems().map {
                 OrderItem(
                     menuId = it.menuId,
@@ -151,6 +172,9 @@ class CheckoutActivity : AppCompatActivity() {
                 total = total,
                 status = "Menunggu",
                 paymentMethod = paymentMethod,
+                orderType = orderType,
+                notes = notes,
+                address = address,
                 createdAt = System.currentTimeMillis()
             )
 

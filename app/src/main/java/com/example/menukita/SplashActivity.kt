@@ -12,11 +12,16 @@ import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import com.example.menukita.databinding.ActivitySplashBinding
 import com.example.menukita.util.OnboardingPrefs
+import com.example.menukita.repository.UserRepository
+import com.example.menukita.model.User
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
     private val handler = Handler(Looper.getMainLooper())
+    private val userRepository = UserRepository()
+    private val auth = FirebaseAuth.getInstance()
     private val taglines = listOf(
         "Hangatkan harimu dengan menu terbaik.",
         "Dari dapur kami ke mejamu."
@@ -39,15 +44,46 @@ class SplashActivity : AppCompatActivity() {
         startTaglineCycle()
 
         handler.postDelayed({
-            val next = if (OnboardingPrefs.isDone(this)) {
-                LoginActivity::class.java
+            val currentUser = auth.currentUser
+            if (currentUser != null && currentUser.email != null) {
+                // User is already logged in, fetch details to determine role
+                userRepository.getUserByEmail(currentUser.email!!) { user, _ ->
+                    if (user != null) {
+                        val intent = if (user.role == "admin") {
+                            Intent(this, MainActivity::class.java).apply {
+                                putExtra("USER_ROLE", user.role)
+                                putExtra("USER_NAME", user.name)
+                                putExtra("USER_EMAIL", user.email)
+                            }
+                        } else {
+                            Intent(this, UserDashboardActivity::class.java).apply {
+                                putExtra("USER_NAME", user.name)
+                                putExtra("USER_EMAIL", user.email)
+                            }
+                        }
+                        startActivity(intent)
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                        finish()
+                    } else {
+                        // Profile missing? Go to login
+                        goToEntrance()
+                    }
+                }
             } else {
-                OnboardingActivity::class.java
+                goToEntrance()
             }
-            startActivity(Intent(this, next))
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finish()
         }, 1800)
+    }
+
+    private fun goToEntrance() {
+        val next = if (OnboardingPrefs.isDone(this)) {
+            LoginActivity::class.java
+        } else {
+            OnboardingActivity::class.java
+        }
+        startActivity(Intent(this, next))
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
     }
 
     private fun startLoaderAnimation() {

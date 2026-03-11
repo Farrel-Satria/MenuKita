@@ -1,0 +1,81 @@
+=========================================================
+   LAPORAN TEKNIS: AUTHENTICATION & MULTI-ROLE SYSTEM
+   OLEH: FARREL / FRONTEND & AUTHENTICATION
+=========================================================
+
+1. IMPLEMENTASI MULTI-ROLE AUTHENTICATION
+Langkah utama yang saya lakukan adalah membangun sistem login dan register yang mendukung dua peran berbeda: Admin dan Pelanggan.
+
+Tujuan:
+- Memastikan keamanan data dengan membatasi akses fitur.
+- Memberikan pengalaman pengguna (UX) yang berbeda untuk setiap peran.
+- Memungkinkan pendaftaran akun baru secara mandiri.
+
+---
+
+2. PENGEMBANGAN MODEL USER (User.kt)
+Saya memperluas model data User agar bisa menampung informasi keamanan dan peran.
+
+File: model/User.kt
+data class User(
+    val id: String? = null,
+    val name: String? = null,
+    val email: String? = null,
+    val password: String? = null,
+    val role: String? = "user" 
+)
+
+Fungsi: Menjadi standar struktur data untuk proses registrasi dan verifikasi saat login di Firebase.
+
+---
+
+3. REPOSITORY PENGGUNA (UserRepository.kt)
+Saya membuat repository khusus untuk menangani interaksi data pengguna dengan Firebase.
+
+Fungsi Utama:
+- Menggunakan orderByChild("email") untuk mencari akun.
+- Hal ini memungkinkan admin menambah akun manual di Firebase dengan nama key apapun (misal: "admin", "user1") tanpa merusak sistem login.
+
+---
+
+4. IMPLEMENTASI ALUR REGISTRASI BARU
+Saya membangun halaman registrasi yang interaktif dengan validasi input.
+
+Fitur Utama:
+- Role Selection: Menggunakan RadioGroup untuk memilih daftar sebagai Admin atau Pelanggan.
+- Validasi Input: Memastikan Nama, Email, dan Password (min 6 karakter) terisi benar.
+
+---
+
+5. DIFERENSIASI DASHBOARD (ADMIN VS PELANGGAN)
+Dua tampilan berbeda namun tetap selaras secara visual.
+
+- Dashboard Admin (MainActivity): List Layout untuk kemudahan manajemen menu (CRUD).
+- Dashboard Pelanggan (UserDashboardActivity): Grid Layout (2 Kolom), fokus pada estetika katalog produk bergaya modern.
+
+---
+
+6. KONSISTENSI DESIGN SYSTEM (UI ALIGNMENT)
+Penyelarasan desain agar aplikasi terlihat profesional.
+
+Perubahan:
+- Merombak Header Admin agar strukturnya sama dengan User Dashboard.
+- Mengganti tombol "Logout" di dashboard dengan ikon "Profile".
+- Alur UX baru: Dashboard -> Profil -> Logout.
+
+---
+
+7. PERBAIKAN BUG & KEAMANAN
+Beberapa solusi teknis penting:
+
+Bug 1: Firebase tidak mendukung tanda titik (.) dalam nama key.
+Solusi: val emailKey = email.replace(".", "_")
+
+Bug 2: Data tidak masuk karena diblokir sistem keamanan Firebase.
+Solusi: Mengubah Firebase Rules ke mode ".read": true, ".write": true selama tahap development.
+
+---
+
+8. HASIL AKHIR
+Aplikasi kini mampu melakukan registrasi mandiri, login dengan proteksi password, serta memiliki routing dashboard otomatis sesuai role user dengan tampilan yang premium dan konsisten.
+=========================================================

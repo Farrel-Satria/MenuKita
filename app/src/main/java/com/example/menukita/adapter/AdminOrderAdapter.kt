@@ -23,6 +23,9 @@ class AdminOrderAdapter(
         val tvOrderDate: TextView = view.findViewById(R.id.tvOrderDate)
         val tvOrderTotal: TextView = view.findViewById(R.id.tvOrderTotal)
         val tvOrderStatus: TextView = view.findViewById(R.id.tvOrderStatus)
+        val tvOrderType: TextView = view.findViewById(R.id.tvOrderType)
+        val tvOrderNotes: TextView = view.findViewById(R.id.tvOrderNotes)
+        val tvOrderAddress: TextView = view.findViewById(R.id.tvOrderAddress)
         val btnProcess: Button = view.findViewById(R.id.btnProcess)
         val btnComplete: Button = view.findViewById(R.id.btnComplete)
         val btnCancel: Button = view.findViewById(R.id.btnCancel)
@@ -46,6 +49,21 @@ class AdminOrderAdapter(
         val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
         holder.tvOrderTotal.text = formatter.format(order.total ?: 0)
         holder.tvOrderStatus.text = order.status ?: "Menunggu"
+        holder.tvOrderType.text = order.orderType ?: "Makan Sini"
+
+        if (!order.notes.isNullOrBlank()) {
+            holder.tvOrderNotes.text = "Catatan: ${order.notes}"
+            holder.tvOrderNotes.visibility = View.VISIBLE
+        } else {
+            holder.tvOrderNotes.visibility = View.GONE
+        }
+
+        if (!order.address.isNullOrBlank()) {
+            holder.tvOrderAddress.text = "Alamat: ${order.address}"
+            holder.tvOrderAddress.visibility = View.VISIBLE
+        } else {
+            holder.tvOrderAddress.visibility = View.GONE
+        }
 
         holder.btnProcess.setOnClickListener { onStatusChange(order, "Diproses") }
         holder.btnComplete.setOnClickListener { onStatusChange(order, "Selesai") }

@@ -69,7 +69,9 @@
     </style>
 
     <!-- Chips -->
-    <style name="Widget.MenuKita.Chip" parent="Widget.Material3.Chip.Assist">
+    <style name="Widget.MenuKita.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:checkable">true</item>
+        <item name="checkedIconVisible">false</item>
         <item name="chipCornerRadius">@dimen/radius_pill</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipStrokeColor">@color/primary_orange</item>

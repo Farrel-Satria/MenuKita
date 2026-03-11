@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.menukita.R
 import com.example.menukita.model.BannerItem
@@ -25,7 +24,6 @@ class BannerAdapter(
         val tvPriceNow: TextView = view.findViewById(R.id.tvBannerPriceNow)
         val tvPriceOld: TextView = view.findViewById(R.id.tvBannerPriceOld)
         val tvHighlights: TextView = view.findViewById(R.id.tvBannerHighlights)
-        val tvQuote: TextView = view.findViewById(R.id.tvBannerQuote)
         val ivBanner: ImageView = view.findViewById(R.id.ivBanner)
         val viewShimmer: View = view.findViewById(R.id.viewShimmer)
     }
@@ -50,24 +48,13 @@ class BannerAdapter(
         holder.tvPriceNow.text = formatter.format(promoPrice)
         TextEffects.strikethrough(holder.tvPriceOld, formatter.format(normalPrice))
 
-        holder.tvQuote.text = TextEffects.quoteText("Promo ini paling sering dipilih saat jam makan siang.")
-        holder.tvHighlights.text = TextEffects.highlightedText(
-            "Diskon Gratis Promo",
-            keywords = listOf("Diskon", "Gratis", "Promo"),
-            bgColor = ContextCompat.getColor(context, R.color.highlight_chip_bg),
-            textColor = ContextCompat.getColor(context, R.color.highlight_chip_text)
-        )
+        holder.tvHighlights.text = "Diskon · Gratis Ongkir · Promo"
 
         TextEffects.reveal(holder.tvTitle, delay = 20L)
         TextEffects.typewriter(holder.tvSubtitle, item.subtitle, duration = 640L) {
             TextEffects.crossfadeText(
                 holder.tvSubtitle,
-                TextEffects.highlightedText(
-                    item.subtitle,
-                    keywords = listOf("Diskon", "Gratis", "Promo", "Baru"),
-                    bgColor = ContextCompat.getColor(context, R.color.highlight_chip_bg),
-                    textColor = ContextCompat.getColor(context, R.color.highlight_chip_text)
-                )
+                item.subtitle
             )
         }
         holder.viewShimmer.animate().cancel()

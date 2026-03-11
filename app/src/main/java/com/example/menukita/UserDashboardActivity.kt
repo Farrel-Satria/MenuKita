@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,7 @@ import com.example.menukita.ui.AmbientParticlesView
 import com.example.menukita.util.CartManager
 import com.example.menukita.util.FavoriteManager
 import com.example.menukita.util.UiFeedback
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.example.menukita.util.ThemeManager
 import com.example.menukita.util.CategoryPrefs
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -61,6 +63,7 @@ class UserDashboardActivity : AppCompatActivity() {
     private var displayedMenuList: List<Menu> = listOf()
     private var userSort: String = "A-Z"
     private var tutorialOverlay: TutorialOverlayView? = null
+    private var isScrolling: Boolean = false
     private val effectsHandler = Handler(Looper.getMainLooper())
     private val seasonalModeRunner = object : Runnable {
         private var rain = false
@@ -140,6 +143,7 @@ class UserDashboardActivity : AppCompatActivity() {
         menuAdapter = MenuGridAdapter(
             emptyList(),
             onItemClick = { menu, imageView ->
+                if (isScrolling) return@MenuGridAdapter
                 val transitionName = "menu_image_${menu.id ?: menu.nama}"
                 ViewCompat.setTransitionName(imageView, transitionName)
                 val intent = Intent(this, MenuDetailActivity::class.java).apply {
@@ -187,6 +191,16 @@ class UserDashboardActivity : AppCompatActivity() {
         binding.rvMenu.apply {
             layoutManager = GridLayoutManager(this@UserDashboardActivity, 2)
             adapter = menuAdapter
+
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    isScrolling = when (newState) {
+                        RecyclerView.SCROLL_STATE_DRAGGING,
+                        RecyclerView.SCROLL_STATE_SETTLING -> true
+                        else -> false
+                    }
+                }
+            })
         }
     }
 
@@ -218,10 +232,18 @@ class UserDashboardActivity : AppCompatActivity() {
         repository.getMenus(
             onDataChange = { menuList ->
                 fullMenuList = menuList
+
+                val newMax = menuList.maxOfOrNull { it.harga ?: 0 } ?: 0
+                if (maxPrice == Int.MAX_VALUE) {
+                } else if (newMax > maxPrice) {
+                }
+
                 applyFilters()
                 updateSearchSuggestions(menuList)
                 if (firstLoad) {
-                    binding.root.findViewById<View>(R.id.skeletonInclude)?.visibility = View.GONE
+                    val skeleton = binding.root.findViewById<ShimmerFrameLayout>(R.id.skeletonInclude)
+                    skeleton?.stopShimmer()
+                    skeleton?.visibility = View.GONE
                     firstLoad = false
                 }
             },
@@ -412,10 +434,13 @@ class UserDashboardActivity : AppCompatActivity() {
                 return false
             }
         })
+        // Removed touch listener to fix chip click issues
+        /*
         binding.appBar.setOnTouchListener { _, event ->
             detector.onTouchEvent(event)
             false
         }
+        */
     }
 
     private fun updateCartBadge() {
@@ -545,7 +570,8 @@ class UserDashboardActivity : AppCompatActivity() {
 
     private fun setupFilter() {
         binding.btnFilter.setOnClickListener {
-            val dialog = BottomSheetDialog(this, R.style.Theme_MenuKita_BottomSheetDialog)
+            try {
+                val dialog = BottomSheetDialog(this, R.style.Theme_MenuKita_BottomSheetDialog)
             val view = layoutInflater.inflate(R.layout.sheet_filters, null)
             dialog.setContentView(view)
 
@@ -564,9 +590,35 @@ class UserDashboardActivity : AppCompatActivity() {
                 else -> chipSortGroup.check(chipSortAZ.id)
             }
 
-            val maxVal = (fullMenuList.maxOfOrNull { it.harga ?: 0 } ?: 200000).coerceAtLeast(10000)
-            range.valueTo = maxVal.toFloat()
-            range.values = listOf(minPrice.toFloat(), maxPrice.coerceAtMost(maxVal).toFloat())
+            val tvRangeValue = view.findViewById<android.widget.TextView>(R.id.tvPriceRangeValue)
+            
+            range.setLabelFormatter { value ->
+                if (value >= 1000) "Rp ${value.toInt() / 1000}rb"
+                else "Rp ${value.toInt()}"
+            }
+
+            range.addOnChangeListener { slider, _, _ ->
+                val start = slider.values.first().toInt()
+                val end = slider.values.last().toInt()
+                tvRangeValue.text = "Rp ${formatPriceShort(start)} - Rp ${formatPriceShort(end)}"
+            }
+
+            val rawMax = (fullMenuList.maxOfOrNull { it.harga ?: 0 } ?: 50000).coerceAtLeast(10000)
+            val maxVal = ((rawMax + 999) / 1000 * 1000).toFloat()
+            
+            // Safe order to prevent RangeSlider IllegalStateException
+            range.values = listOf(0f, 1000f)
+            range.valueFrom = 0f
+            range.valueTo = maxVal
+            range.stepSize = 1000f
+            
+            val startVal = (minPrice / 1000 * 1000).toFloat().coerceIn(0f, maxVal - 1000f)
+            val endVal = (if (maxPrice == Int.MAX_VALUE) maxVal else (maxPrice / 1000 * 1000).toFloat())
+                .coerceIn(startVal + 1000f, maxVal)
+            
+            range.values = listOf(startVal, endVal)
+            
+            tvRangeValue.text = "Rp ${formatPriceShort(startVal.toInt())} - Rp ${formatPriceShort(endVal.toInt())}"
             switchFav.isChecked = onlyFavorites
 
             btnApply.setOnClickListener {
@@ -591,6 +643,10 @@ class UserDashboardActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             dialog.show()
+            } catch (e: Exception) {
+                android.util.Log.e("UserDashboard", "Filter Error", e)
+                Toast.makeText(this, "Gagal memuat filter: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -691,5 +747,9 @@ class UserDashboardActivity : AppCompatActivity() {
                 .start()
         }
         TutorialPrefs.setDone(this, true)
+    }
+
+    private fun formatPriceShort(price: Int): String {
+        return if (price >= 1000) "${price / 1000}rb" else price.toString()
     }
 }

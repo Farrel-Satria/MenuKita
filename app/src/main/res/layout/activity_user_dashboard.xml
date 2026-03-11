@@ -22,6 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_scrollFlags="scroll|enterAlways"
                 android:paddingStart="@dimen/space_16"
                 android:paddingEnd="@dimen/space_16"
                 android:paddingTop="@dimen/space_14"
@@ -124,17 +125,18 @@
                         android:id="@+id/tilSearch"
                         style="@style/Widget.MenuKita.TextInputLayout.Outlined"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_weight="1"
                         android:elevation="@dimen/elevation_sm"
-                        android:hint="Cari menu favoritmu..."
+                        android:hint="Cari menu..."
                         app:startIconDrawable="@android:drawable/ic_menu_search"
                         app:startIconTint="@color/primary_orange">
 
                         <AutoCompleteTextView
                             android:id="@+id/etSearch"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
                             android:inputType="text"
                             android:singleLine="true" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -163,81 +165,85 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabBanner"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="8dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/space_6"
+                    android:layout_marginTop="@dimen/space_8"
                     android:background="@android:color/transparent"
                     app:tabBackground="@drawable/dot_indicator"
                     app:tabGravity="center"
                     app:tabIndicatorHeight="0dp"
-                    app:tabMaxWidth="35dp"
-                    app:tabMinWidth="35dp"
+                    app:tabMaxWidth="8dp"
+                    app:tabMinWidth="8dp"
                     app:tabMode="fixed"
-                    app:tabPaddingEnd="-12dp"
-                    app:tabPaddingStart="-12dp"
+                    app:tabPaddingStart="2dp"
+                    app:tabPaddingEnd="2dp"
+                    app:tabPaddingTop="0dp"
+                    app:tabPaddingBottom="0dp"
                     app:tabRippleColor="@android:color/transparent" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/space_12"
+                    android:paddingBottom="@dimen/space_4"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupKategori"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/space_16"
+                        android:paddingEnd="@dimen/space_16"
+                        app:chipSpacingHorizontal="@dimen/space_8"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipSemua"
+                            style="@style/Widget.MenuKita.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Semua"
+                            android:textColor="@color/chip_text"
+                            app:chipBackgroundColor="@color/chip_bg"
+                            app:chipStrokeColor="@color/primary_orange" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipMakanan"
+                            style="@style/Widget.MenuKita.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Makanan"
+                            android:textColor="@color/chip_text"
+                            app:chipBackgroundColor="@color/chip_bg"
+                            app:chipStrokeColor="@color/primary_orange" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipMinuman"
+                            style="@style/Widget.MenuKita.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Minuman"
+                            android:textColor="@color/chip_text"
+                            app:chipBackgroundColor="@color/chip_bg"
+                            app:chipStrokeColor="@color/primary_orange" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipDessert"
+                            style="@style/Widget.MenuKita.Chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dessert"
+                            android:textColor="@color/chip_text"
+                            app:chipBackgroundColor="@color/chip_bg"
+                            app:chipStrokeColor="@color/primary_orange" />
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
             </LinearLayout>
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/space_4"
-                android:paddingBottom="@dimen/space_12"
-                android:scrollbars="none">
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupKategori"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/space_16"
-                    android:paddingEnd="@dimen/space_16"
-                    app:chipSpacingHorizontal="@dimen/space_8"
-                    app:selectionRequired="true"
-                    app:singleLine="true"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipSemua"
-                        style="@style/Widget.MenuKita.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:text="Semua"
-                        android:textColor="@color/chip_text"
-                        app:chipBackgroundColor="@color/chip_bg"
-                        app:chipStrokeColor="@color/primary_orange" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipMakanan"
-                        style="@style/Widget.MenuKita.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Makanan"
-                        android:textColor="@color/chip_text"
-                        app:chipBackgroundColor="@color/chip_bg"
-                        app:chipStrokeColor="@color/primary_orange" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipMinuman"
-                        style="@style/Widget.MenuKita.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Minuman"
-                        android:textColor="@color/chip_text"
-                        app:chipBackgroundColor="@color/chip_bg"
-                        app:chipStrokeColor="@color/primary_orange" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipDessert"
-                        style="@style/Widget.MenuKita.Chip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dessert"
-                        android:textColor="@color/chip_text"
-                        app:chipBackgroundColor="@color/chip_bg"
-                        app:chipStrokeColor="@color/primary_orange" />
-                </com.google.android.material.chip.ChipGroup>
-            </HorizontalScrollView>
         </com.google.android.material.appbar.AppBarLayout>
 
         <com.example.menukita.ui.AmbientParticlesView

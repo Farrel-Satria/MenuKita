@@ -18,6 +18,7 @@ import com.example.menukita.adapter.MenuAdapter
 import com.example.menukita.databinding.ActivityMainBinding
 import com.example.menukita.model.BannerItem
 import com.example.menukita.repository.MenuRepository
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.example.menukita.model.Menu
 import com.google.android.material.tabs.TabLayoutMediator
 import com.example.menukita.util.ThemeManager
@@ -193,17 +194,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toggleQuickFab() {
+        binding.fabAdd.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS)
         fabExpanded = !fabExpanded
         if (fabExpanded) {
-            binding.fabAdd.setIconResource(android.R.drawable.ic_menu_close_clear_cancel)
-            binding.fabAdd.animate().rotation(135f).setDuration(180).start()
+            binding.fabAdd.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
+            binding.fabAdd.animate().rotation(0f).setDuration(200).start()
             showFab(binding.fabQuickAdd, 0)
-            showFab(binding.fabQuickOrders, 60)
+            showFab(binding.fabQuickOrders, 65)
         } else {
-            binding.fabAdd.setIconResource(android.R.drawable.ic_input_add)
-            binding.fabAdd.animate().rotation(0f).setDuration(180).start()
+            binding.fabAdd.setImageResource(R.drawable.ic_add_24)
+            binding.fabAdd.animate().rotation(0f).setDuration(200).start()
             hideFab(binding.fabQuickOrders, 0)
-            hideFab(binding.fabQuickAdd, 60)
+            hideFab(binding.fabQuickAdd, 65)
         }
     }
 
@@ -286,10 +288,20 @@ class MainActivity : AppCompatActivity() {
             onDataChange = { menuList ->
                 fullMenuList = menuList
                 updateSummary(menuList)
+                
+                // Automaticaly update maxPrice for filter if it's the first time or if it was at the previous max
+                val currentRealMax = menuList.maxOfOrNull { it.harga ?: 0 } ?: 0
+                if (maxPrice == Int.MAX_VALUE || maxPrice < currentRealMax) {
+                    maxPrice = currentRealMax
+                }
+                
                 applyFilters()
                 updateSearchSuggestions(menuList)
                 if (firstLoad) {
-                    binding.skeletonInclude.root.visibility = View.GONE
+                    (binding.skeletonInclude.root as? ShimmerFrameLayout)?.let {
+                        it.stopShimmer()
+                        it.visibility = View.GONE
+                    }
                     firstLoad = false
                 }
             },
@@ -309,9 +321,21 @@ class MainActivity : AppCompatActivity() {
             val formatter = java.text.NumberFormat.getCurrencyInstance(java.util.Locale("id", "ID"))
             binding.tvMinPrice.text = formatter.format(minPrice)
             binding.tvMaxPrice.text = formatter.format(maxPrice)
+
+            val makananCount = list.count { it.kategori?.equals("Makanan", ignoreCase = true) == true }
+            val minumanCount = list.count { it.kategori?.equals("Minuman", ignoreCase = true) == true }
+            val dessertCount = list.count { it.kategori?.equals("Dessert", ignoreCase = true) == true }
+
+            val total = list.size.toFloat()
+            binding.progressFood.progress = if (total > 0) ((makananCount / total) * 100).toInt() else 0
+            binding.progressBeverage.progress = if (total > 0) ((minumanCount / total) * 100).toInt() else 0
+            binding.progressDessert.progress = if (total > 0) ((dessertCount / total) * 100).toInt() else 0
         } else {
             binding.tvMinPrice.text = "Rp 0"
             binding.tvMaxPrice.text = "Rp 0"
+            binding.progressFood.progress = 0
+            binding.progressBeverage.progress = 0
+            binding.progressDessert.progress = 0
         }
     }
 
@@ -498,9 +522,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupFilter() {
         binding.btnFilter.setOnClickListener {
-            val dialog = BottomSheetDialog(this, R.style.Theme_MenuKita_BottomSheetDialog)
-            val view = layoutInflater.inflate(R.layout.sheet_filters, null)
-            dialog.setContentView(view)
+            try {
+                val dialog = BottomSheetDialog(this, R.style.Theme_MenuKita_BottomSheetDialog)
+                val view = layoutInflater.inflate(R.layout.sheet_filters, null)
+                dialog.setContentView(view)
 
             val chipSortGroup = view.findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipSortGroup)
             val chipSortAZ = view.findViewById<com.google.android.material.chip.Chip>(R.id.chipSortAZ)
@@ -517,9 +542,35 @@ class MainActivity : AppCompatActivity() {
                 else -> chipSortGroup.check(chipSortAZ.id)
             }
 
-            val maxVal = (fullMenuList.maxOfOrNull { it.harga ?: 0 } ?: 200000).coerceAtLeast(10000)
-            range.valueTo = maxVal.toFloat()
-            range.values = listOf(minPrice.toFloat(), maxPrice.coerceAtMost(maxVal).toFloat())
+            val tvRangeValue = view.findViewById<android.widget.TextView>(R.id.tvPriceRangeValue)
+            
+            range.setLabelFormatter { value ->
+                if (value >= 1000) "Rp ${value.toInt() / 1000}rb"
+                else "Rp ${value.toInt()}"
+            }
+
+            range.addOnChangeListener { slider, _, _ ->
+                val start = slider.values.first().toInt()
+                val end = slider.values.last().toInt()
+                tvRangeValue.text = "Rp ${formatPriceShort(start)} - Rp ${formatPriceShort(end)}"
+            }
+
+            val currentDataMax = (fullMenuList.maxOfOrNull { it.harga ?: 0 } ?: 50000).coerceAtLeast(10000)
+            val maxVal = ((currentDataMax + 999) / 1000 * 1000).toFloat()
+            
+            // Safe order to prevent RangeSlider IllegalStateException
+            range.values = listOf(0f, 1000f)
+            range.valueFrom = 0f
+            range.valueTo = maxVal
+            range.stepSize = 1000f
+            
+            val startVal = (minPrice / 1000 * 1000).toFloat().coerceIn(0f, maxVal - 1000f)
+            val endVal = (if (maxPrice == Int.MAX_VALUE) maxVal else (maxPrice / 1000 * 1000).toFloat())
+                .coerceIn(startVal + 1000f, maxVal)
+            
+            range.values = listOf(startVal, endVal)
+            
+            tvRangeValue.text = "Rp ${formatPriceShort(startVal.toInt())} - Rp ${formatPriceShort(endVal.toInt())}"
             switchFav.isChecked = onlyFavorites
 
             btnApply.setOnClickListener {
@@ -545,6 +596,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             dialog.show()
+            } catch (e: Exception) {
+                android.util.Log.e("MainActivity", "Filter Error", e)
+                Toast.makeText(this, "Gagal memuat filter: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -570,6 +625,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
         helper.attachToRecyclerView(binding.rvMenu)
+    }
+
+    private fun formatPriceShort(price: Int): String {
+        return if (price >= 1000) "${price / 1000}rb" else price.toString()
     }
 }
 

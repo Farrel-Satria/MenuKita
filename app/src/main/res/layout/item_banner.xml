@@ -105,26 +105,13 @@
                     android:id="@+id/tvBannerHighlights"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_4"
+                    android:layout_marginTop="@dimen/space_6"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="Diskon Gratis Promo"
-                    android:textColor="@color/white"
-                    android:textSize="11sp" />
-
-                <TextView
-                    android:id="@+id/tvBannerQuote"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_4"
-                    android:background="@drawable/bg_quote_pill"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:paddingHorizontal="@dimen/space_8"
-                    android:paddingVertical="@dimen/space_4"
-                    android:text="&quot;Pelanggan menyukai promo ini&quot;"
-                    android:textColor="@color/neutral_dark"
-                    android:textSize="11sp" />
+                    android:text="Diskon · Gratis Ongkir · Promo"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <ImageView

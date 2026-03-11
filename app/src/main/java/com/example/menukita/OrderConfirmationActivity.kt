@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.menukita.databinding.ActivityOrderConfirmationBinding
 import com.example.menukita.util.TextEffects
 import com.example.menukita.util.UiFeedback
+import com.airbnb.lottie.LottieAnimationView
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -18,8 +19,6 @@ class OrderConfirmationActivity : AppCompatActivity() {
         binding = ActivityOrderConfirmationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.confettiView.start()
-        binding.fireworksView.launchBursts(3)
         val total = intent.getIntExtra("ORDER_TOTAL", 0)
         val payment = intent.getStringExtra("ORDER_PAYMENT") ?: "Cash"
         val formatter = NumberFormat.getCurrencyInstance(Locale("id", "ID"))

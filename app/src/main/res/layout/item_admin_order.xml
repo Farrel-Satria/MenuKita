@@ -42,10 +42,49 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvOrderStatus"
+            android:id="@+id/tvOrderType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:text="Makan Sini"
+            android:background="@drawable/bg_quote_pill"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:textColor="@color/neutral_dark"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="@color/divider"
+            android:alpha="0.2" />
+
+        <TextView
+            android:id="@+id/tvOrderNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catatan: Tidak ada"
+            android:textColor="@color/gray_text"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvOrderAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Alamat: -"
+            android:textColor="@color/gray_text"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvOrderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Menunggu"
             android:textColor="@color/accent_green"
             android:textStyle="bold" />
